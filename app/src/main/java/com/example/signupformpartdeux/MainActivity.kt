@@ -1,6 +1,7 @@
 package com.example.signupformpartdeux
 
 import android.os.Bundle
+import android.webkit.WebView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,6 +27,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.example.signupformpartdeux.ui.theme.SignUpFormPartDeuxTheme
 
 class MainActivity : ComponentActivity() {
@@ -108,6 +110,11 @@ fun SignUpForm(name: String, modifier: Modifier = Modifier) {
         }){
             Text("Save")
         }
+        AndroidView(factory = {
+            WebView(it)
+            }, update = {
+            it.loadUrl("")
+        })
     }
 }
 
